@@ -1,5 +1,8 @@
 package ru.myosin.geo.model
 
+/**
+ * Объект границ.
+ */
 @ConsistentCopyVisibility
 data class Bounds private constructor(val north: Double, val west: Double, val south: Double, val east: Double){
     companion object Utils

@@ -11,10 +11,10 @@ fun Builder.buildOrElse( onFailure: (Throwable) -> Location ) = build().getOrEls
 fun Builder.buildOrNull() = build().getOrNull()
 fun Builder.buildOrThrow() = build().getOrThrow()
 
-fun Builder.latitude( value: Number ) = apply { latitude = value.toDouble() }
+fun Builder.latitude( value: Number ) = apply { latitude = value.toString().toDouble() }
 fun Builder.latitude( value: String ) = apply { latitude = value.toDouble() }
 
-fun Builder.longitude( value: Number ) = apply { longitude = value.toDouble() }
+fun Builder.longitude( value: Number ) = apply { longitude = value.toString().toDouble() }
 fun Builder.longitude( value: String ) = apply { longitude = value.toDouble() }
 
 fun Builder.location( value: Location ) = apply {

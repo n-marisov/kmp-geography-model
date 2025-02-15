@@ -1,6 +1,8 @@
 package ru.myosin.geo.model
 
-
+/**
+ * Эллипсоид.
+ */
 @ConsistentCopyVisibility
 data class Ellipsoid private constructor(
     val equatorialRadius: Double,

@@ -13,16 +13,16 @@ fun Builder.buildOrElse( onFailure: (Throwable) -> Bounds ) = build().getOrElse(
 fun Builder.buildOrNull() = build().getOrNull()
 fun Builder.buildOrThrow() = build().getOrThrow()
 
-fun Builder.north( value: Number ) = apply { north = value.toDouble() }
+fun Builder.north( value: Number ) = apply { north = value.toString().toDouble() }
 fun Builder.north( value: String ) = apply { north = value.toDouble() }
 
-fun Builder.west( value: Number ) = apply { west = value.toDouble() }
+fun Builder.west( value: Number ) = apply { west = value.toString().toDouble() }
 fun Builder.west( value: String ) = apply { west = value.toDouble() }
 
-fun Builder.south( value: Number ) = apply { south = value.toDouble() }
+fun Builder.south( value: Number ) = apply { south = value.toString().toDouble() }
 fun Builder.south( value: String ) = apply { south = value.toDouble() }
 
-fun Builder.east( value: Number ) = apply { east = value.toDouble() }
+fun Builder.east( value: Number ) = apply { east = value.toString().toDouble() }
 fun Builder.east( value: String ) = apply { east = value.toDouble() }
 
 fun Builder.northWest( value: Location ) = apply {
@@ -74,7 +74,7 @@ fun Builder.coordinates( value: Iterable<Location> ) = apply {
         north?.also { add(it) }
         south?.also { add(it) }
     }
-    val longitudes = value.map { it.latitude }.toMutableList().apply {
+    val longitudes = value.map { it.longitude }.toMutableList().apply {
         west?.also { add(it) }
         east?.also { add(it) }
     }
