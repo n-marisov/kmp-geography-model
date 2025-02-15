@@ -1,14 +1,14 @@
 *.iml
 .gradle
 .idea
-.DS_Store
+.kotlin
 build
 captures
 .externalNativeBuild
 .cxx
 local.properties
 xcuserdata
-.kotlin
+.DS_Store
 #So we don't accidentally commit our private keys
 *.gpg
 \library\
