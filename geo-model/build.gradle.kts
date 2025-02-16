@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "ru.myosin"
-//version = "1.0.0"
+version = "1.0.0"
 
 kotlin {
     jvm()
@@ -20,14 +20,36 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
-    linuxX64()
+
+    androidNativeArm64()
+    androidNativeX64()
+
+    linuxX64 {
+        binaries {
+            executable()
+        }
+    }
+    linuxArm64 {
+        binaries {
+            executable()
+        }
+    }
+
     js {
         browser {  }
         nodejs {  }
+        binaries.executable()
     }
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmJs{
+        browser()
+        nodejs()
+        binaries.executable()
+    }
+
+    mingwX64()
+
+
 
     sourceSets {
         val commonMain by getting {
@@ -64,7 +86,7 @@ android {
 }
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = false)
 
     signAllPublications()
 
@@ -74,7 +96,16 @@ mavenPublishing {
         name = "Myosin geography models"
         description = "A set of geographical models of the Myosin library."
         inceptionYear = "2025"
-        url = "https://github.com/n-marisov"
+        url = "https://github.com/n-marisov/kmp-geography-model"
+
+        developers {
+            developer {
+                name = "Nikolai Marisov"
+                email = "marisov123456789@mail.ru"
+                organizationUrl = "https://github.com/n-marisov"
+            }
+        }
+
         licenses {
             license {
                 name = "The Apache Software License, Version 2.0"
@@ -83,9 +114,9 @@ mavenPublishing {
         }
 
         scm {
-            url = "XXX"
-            connection = "YYY"
-            developerConnection = "ZZZ"
+            url = "https://github.com/n-marisov/kmp-geography-model/tree/master/geo-model"
+            connection = "scm:git:git://github.com/n-marisov/kmp-geography-model.git"
+            developerConnection = "scm:git:ssh://github.com/n-marisov/kmp-geography-model.git"
         }
     }
 }
