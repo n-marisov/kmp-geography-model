@@ -4,5 +4,6 @@ import ru.myosin.geo.model.Location
 import ru.myosin.geo.model.Polyline.Builder
 import ru.myosin.geo.model.Polyline.Utils
 
+fun Utils.of( block: Builder.() -> Unit ) = Builder(block).buildOrNull()
 fun Utils.of( coordinates: Iterable<Location> ) = Builder().coordinates(coordinates).buildOrNull()
 fun Utils.of( vararg coordinates: Location ) = Builder().coordinates(coordinates.toMutableList()).buildOrNull()

@@ -14,6 +14,8 @@ data class Polygon private constructor(val contour: List<Location>, val holes: L
 
     class Builder( var coordinates: MutableList<MutableList<Location>> = mutableListOf() ){
 
+        constructor(block: Builder.() -> Unit):this(){apply(block)}
+
         operator fun not(): Boolean{
             return coordinates.isEmpty() || coordinates.first().isEmpty()
         }
@@ -30,7 +32,7 @@ data class Polygon private constructor(val contour: List<Location>, val holes: L
                 return Result.success( Polygon( contour, emptyList() ) )
 
             val holes = mutableListOf<Polygon>()
-            for (i in 1..coordinates.size)
+            for (i in 1..(coordinates.size - 1))
                 holes.add(Polygon(coordinates[i], emptyList()))
 
             return Result.success( Polygon( contour, holes ) )

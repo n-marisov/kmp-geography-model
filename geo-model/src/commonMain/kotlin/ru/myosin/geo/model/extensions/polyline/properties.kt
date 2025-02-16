@@ -13,5 +13,5 @@ val Polyline.isSegment: Boolean get() = (coordinates.size == 2)
 val Polyline.isRing: Boolean get(){
     val first = coordinates.first()
     val last = coordinates.last()
-    return first.latitude == last.latitude && first.longitude == last.longitude
+    return !isSegment && first.latitude == last.latitude && first.longitude == last.longitude
 }

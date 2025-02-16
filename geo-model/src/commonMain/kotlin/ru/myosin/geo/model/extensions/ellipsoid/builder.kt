@@ -12,6 +12,9 @@ fun Builder.buildOrElse( onFailure: (Throwable) -> Ellipsoid ) = build().getOrEl
 fun Builder.buildOrNull() = build().getOrNull()
 fun Builder.buildOrThrow() = build().getOrThrow()
 
-fun Builder.equatorialRadius(value: Number) = apply { equatorialRadius = value.toDouble() }
-fun Builder.polarRadius(value: Number) = apply { polarRadius = value.toDouble() }
+fun Builder.equatorialRadius(value: Number) = apply { equatorialRadius = value.toString().toDouble() }
+fun Builder.equatorialRadius(value: String) = apply { equatorialRadius = value.toDouble() }
+
+fun Builder.polarRadius(value: Number) = apply { polarRadius = value.toString().toDouble() }
+fun Builder.polarRadius(value: String) = apply { polarRadius = value.toDouble() }
 
