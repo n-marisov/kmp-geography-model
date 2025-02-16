@@ -19,8 +19,6 @@
 ```
 
 ## Установка Kotlin multiplatform
-
-## Установка Kotlin multiplatform
 ```toml
 [versions]
 myosin = "1.0.0"
